@@ -1,0 +1,33 @@
+{% extends 'account/index.html' %}
+{% block title %} home {% endblock %}
+
+{% block nav %}
+     <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">logout</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">about us</a>
+      </li>
+    </ul>
+
+{% endblock nav %}
+
+{% block content %}
+    <div class="container text-dark mt-5">
+        <div class="row justify-content-md-center">
+          <div class="col-md-5 p-3">
+                <h1>Welcome to caramelit</h1>
+                {% if user.is_authenticated %}
+                <p>{{ user.username }} !</p>
+                {% else %}
+                <h1>please log in</h1>
+                {% endif %}
+          </div>
+        </div>
+      </div>
+
+{% endblock %}
